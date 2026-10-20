@@ -4,8 +4,7 @@ import requests, json, datetime
 from collections import defaultdict
 
 LICHESS_TOKEN = "lip_iNKvkOifzZmJh49Xd62v"
-# USERNAME is kept for API routing/headers if needed, but hidden from UI
-USERNAME = "fancy_pencil" 
+USERNAME = "fancy_pencil"
 HEADERS = {"Authorization": f"Bearer {LICHESS_TOKEN}"}
 
 # Page Configuration
@@ -30,7 +29,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Dashboard Header (Generic - No Username Displayed)
+# Dashboard Header
 st.title("♟️ Puzzle Training Analytics Dashboard")
 st.caption("Track daily puzzle volume, performance trends, and tactical theme strengths anonymously.")
 
@@ -117,19 +116,4 @@ with m2:
         </div>
     """, unsafe_allow_html=True)
 with m3:
-    st.markdown(f"""
-        <div class="metric-container">
-            <div class="metric-label">Overall Accuracy</div>
-            <div class="metric-value" style="color: #3b82f6;">{overall_acc}%</div>
-        </div>
-    """, unsafe_allow_html=True)
-st.markdown("---")
-
-sel_date = st.query_params.get("date", None)
-if sel_date not in daily_themes:
-    sel_date = None
-
-active_theme_dict = daily_themes[sel_date] if sel_date else range_themes
-sorted_themes = sorted(active_theme_dict.items(), key=lambda x: x[1]["att"], reverse=True)
-
-t_labels = [t.capitalize() for t,
+    st
